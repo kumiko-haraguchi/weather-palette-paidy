@@ -12,8 +12,9 @@ const generateOptions = options =>
   
 const Selector = ({ location, cities, fetchWeather }) =>
   <SelectField
+    className="mui-select"  
     value={location}
-    onChange={(e, index, value) => { fetchWeather(value) }} className="mui-select"
+    onChange={(e, index, value) => { fetchWeather(value) }}
   >
     {generateOptions(cities)}
   </SelectField> 
