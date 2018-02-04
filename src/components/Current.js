@@ -1,35 +1,31 @@
 import React from 'react';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 
-const Current = ({ date, temp, weather, humidity, speed }) =>
-  <Card className="mui-card width-short outer mgla mgra mgt32">    
-    <CardHeader title={`TODAY ${date}`} />
+import { convertToUpperCase } from '../utils'
+import Icon from './Icon';
+import CardItem from './CardItem';
+
+const generaeCardItem = ({ props }) =>
+  props.map(({ item, unit }, idx) => {
+    const key = Object.keys(item)[0];
+    const upperKey = convertToUpperCase(key.slice(0));
+    const value = upperKey === "Weather" ? <Icon weather={key} /> : item[key];
+    return (
+      <CardItem
+        idex={idx}  
+        key={key}  
+        upperKey={upperKey}  
+        value={value}  
+        unit={unit}  
+      />)
+  })
+
+const Current = props =>
+  <Card className="mui-card width-short outer mgla mgra mgt32">
+    <CardHeader title={`TODAY`} className="mui-card-header flex hr-center"/>
     <div className="flex sp-ad pd16">
-      <Card className="mui-card square">  
-        <CardHeader title="Weather" className="mui-card-title" />
-        <CardText className="mui-card-text current flex hr-center vr-center">
-          {weather}
-        </CardText>
-      </Card>  
-      <Card className="mui-card">    
-        <CardHeader title="Tempreture" className="mui-card-title" />
-        <CardText className="mui-card-text current flex hr-center vr-center">
-          {temp}<span className="mui-card-sub-text">F</span>
-        </CardText>
-      </Card>  
-      <Card className="mui-card">    
-        <CardHeader title="Humidity" className="mui-card-title" />
-        <CardText className="mui-card-text current flex hr-center vr-center">
-          {humidity}<span className="mui-card-sub-text">%</span>
-        </CardText>
-      </Card>  
-      <Card className="mui-card">    
-        <CardHeader title="Speed" className="mui-card-title" />
-        <CardText className="mui-card-text current flex hr-center vr-center">
-          {speed}<span className="mui-card-sub-text">km/h</span>
-        </CardText>
-      </Card>  
+      {generaeCardItem(props)}
     </div>
-  </Card>  
+  </Card>
 
 export default Current;

@@ -1,5 +1,5 @@
 {
-  "name": "cc-weather-palete",
+  "name": "weather-palete",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -18,7 +18,6 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "node-sass": "^4.6.0",
-    "parcel-bundler": "^1.5.1",
-    "prop-types": "^15.6.0"
+    "parcel-bundler": "^1.5.1"
   }
 }

@@ -17,7 +17,7 @@ const Loading = () =>
       size={50}
       left={70}
       top={0}
-      loadingColor="gray"
+      loadingColor="rgb(255, 64, 129)"
       status="loading"
     />
   </div> 
