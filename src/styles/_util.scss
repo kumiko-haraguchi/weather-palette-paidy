@@ -1,0 +1,78 @@
+/*----------------------------------------
+UTIL
+------------------------------------------*/
+/* flex */
+.flex {
+  display: flex;
+}
+.hr-center {
+  justify-content: center
+}
+.vr-center {
+  align-items: center
+}
+.sp-bw {
+  justify-content: space-between
+}
+.sp-ad {
+  justify-content: space-around
+}
+.dr-clm {
+  flex-direction: column;
+}
+
+/* centering */
+.center-parent {
+  position: relative;
+}
+.center-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* square */
+.square {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* 100% of width to height */
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/* spacing */;
+.mgla {
+  margin-left: auto
+}
+.mgra {
+  margin-right: auto
+}
+.mg8 {
+  margin: $base-mg;
+}
+.mg16 {
+  margin: $base-mg*2;
+}
+.mgt32 {
+  margin-top: $base-mg*3;
+}
+.pd8 {
+  padding: $base-pd;
+}
+.pd16 {
+  padding: $base-pd*2;
+}
+
+/* alpha */
+.opa {
+  opacity: 0.85;
+}

@@ -1,14 +1,21 @@
 import React from 'react';
 
-import { generateCityCountry } from '../helper';
+import { generateLocationParam } from '../utils';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
-const generateOptions = ({ id, city, country }) =>
-  <option key={id} value={generateCityCountry(city, country)}>{city}</option>
-
-const Selector = ({ selectCity, cities }) =>
-  <select
-    onChange={e => { selectCity(e.target.value) }}>
-    { cities.map(city => generateOptions(city))}
-  </select>
+const generateOptions = options =>
+  options.map(({ id, city, country }) => {
+    const location = generateLocationParam(city, country);
+    return <MenuItem key={id} primaryText={location} value={location} />;
+  });
+  
+const Selector = ({ location, cities, fetchWeather }) =>
+  <SelectField
+    value={location}
+    onChange={(e, index, value) => { fetchWeather(value) }} className="mui-select"
+  >
+    {generateOptions(cities)}
+  </SelectField> 
 
 export default Selector;
