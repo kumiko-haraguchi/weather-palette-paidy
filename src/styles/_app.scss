@@ -7,6 +7,8 @@ APP
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 1;
+  transition: $base-transiton;
 
   &.tokyo {
     background-image: url('../images/tokyo.jpg');
@@ -17,7 +19,16 @@ APP
   &.tehran {
     background-image: url('../images/tehran.jpg');
   }
+  &.seattle {
+    background-image: url('../images/seattle.jpg');
+  }
   &.colombo {
     background-image: url('../images/colombo.jpg');
+  }
+  &.toronto {
+    background-image: url('../images/toronto.jpg');
+  }
+  &.fadeOut {
+    opacity: $base-opa;
   }
 }

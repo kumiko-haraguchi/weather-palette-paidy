@@ -10,7 +10,6 @@ import Current from '../components/Current';
 import Forecast from '../components/Forecast';
 import Refresh from '../components/Refresh';
 import Loading from '../components/Loading';
-import './App.scss';
 
 const API = `https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text="`;
 const addQuery = param => param + `")&format=json`;
@@ -23,7 +22,7 @@ class App extends Component {
       location: null,
       city: null,
       date: null,
-      temp: null,
+      temperature: null,
       weather: null,
       humidity: null,
       speed: null,
@@ -31,17 +30,18 @@ class App extends Component {
       error: null
     }
     this.fetchWeather = this.fetchWeather.bind(this);
+    this.showAnimForRefresh = this.showAnimForRefresh.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { city, country } = cities[0];
     this.setState({ isFetching: true });
-    this.fetchWeather(generateLocationParam(city, country));
+    await this.fetchWeather(generateLocationParam(city, country));
   }
 
   async fetchWeather(location) {
     try {
-      const result = await (await fetch(API + addQuery(location))).json()
+      const result = await (await fetch(API + addQuery(location))).json();
       const { atmosphere, wind, item } = result.query.results.channel;
       const { condition, forecast } = item;
       const formatted = formatFetchData({ location, condition, atmosphere, wind, forecast });
@@ -52,38 +52,56 @@ class App extends Component {
     }
   }
 
-  render() {
-    const { isFetching, location, city, date, temp, weather, humidity, speed, forecast, error } = this.state;
+  showAnimForRefresh(){
+    this.app.classList.add("fadeOut");
+    setTimeout(()=> {
+      this.app.classList.remove("fadeOut");
+    }, 200)
+  }
+
+  renderAppComponent({ isFetching, location, temperature, weather, humidity, speed, forecast }){
     const commonProps = { location, fetchWeather: this.fetchWeather }
+    const currentProps = [
+      { item: { weather }, unit: null },
+      { item: { temperature }, unit: "F" },
+      { item: { humidity }, unit: "%" },
+      { item: { speed }, unit: "km/h" }
+    ]
+
+    if(isFetching) return <Loading />
+    return (
+      <Fragment>
+        <div className="flex vr-center sp-bw">
+          <Selector
+            {...commonProps}
+            cities={cities}
+          />
+          <Refresh
+            {...commonProps}
+            showAnimForRefresh={this.showAnimForRefresh}
+          />
+        </div>
+        <Current props={currentProps}/>
+        <Forecast forecast={forecast} />
+      </Fragment>
+    )
+  }
+  
+  render() {
+    const { city, error } = this.state;
     if (error) return <p>{error.message}</p>;
 
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div id="app" className={city}>
+        <div id="app"
+          className={city}
+          ref={app => { this.app = app; }}
+        >
           <div className="inner">
-            {isFetching
-              ? <Loading />
-              : <Fragment>  
-                <div className="flex vr-center sp-bw">  
-                  <Selector
-                    {...commonProps}
-                    cities={cities}
-                  />  
-                  <Refresh {...commonProps} />
-                </div> 
-                <Current
-                  date={date}
-                  temp={temp}
-                  weather={weather}
-                  humidity={humidity}
-                  speed={speed}
-                />
-                <Forecast forecast={forecast} />
-              </Fragment>  
-            }    
-          </div> 
-        </div> 
-      </MuiThemeProvider>  
+            {this.renderAppComponent(this.state)}
+          </div>
+        </div>
+      </MuiThemeProvider>
     )
   }
 }
