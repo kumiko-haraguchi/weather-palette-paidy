@@ -1,0 +1,23 @@
+/*----------------------------------------
+APP
+------------------------------------------*/
+#app {
+  width: 100vw;
+  min-height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.tokyo {
+    background-image: url('../images/tokyo.jpg');
+  }
+  &.sanfrancisco {
+    background-image: url('../images/sf.jpg');
+  }
+  &.tehran {
+    background-image: url('../images/tehran.jpg');
+  }
+  &.colombo {
+    background-image: url('../images/colombo.jpg');
+  }
+}
