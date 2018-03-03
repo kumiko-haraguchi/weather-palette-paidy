@@ -1,0 +1,24 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "city": "Tokyo",
+      "country": "JP"
+    },
+    {
+      "id": 2,
+      "city": "San Francisco",
+      "country": "US"
+    },
+    {
+      "id": 3,
+      "city": "Tehran",
+      "country": "IR"
+    },
+    {
+      "id": 4,
+      "city": "Colombo",
+      "country": "LK"
+    }
+  ]
+}
