@@ -8,13 +8,13 @@
  - I set 2 milestones and checked how much time I spent for each. You can check my PR for each task and its output from the links below.
 
 1) Create UI components, handle yahoo weather API(v1)
-   - PR: https://github.com/kumiko-haraguchi/weather-palette/pull/1 
+   - PR: https://github.com/kumiko-haraguchi/weather-palette-paidy/pull/1 
    - Time: 3.5 hours
 2) Add styles, make app look nice(v2)
-   - PR: https://github.com/kumiko-haraguchi/weather-palette/pull/2 
+   - PR: https://github.com/kumiko-haraguchi/weather-palette-paidy/pull/2 
    - Time: 3.5 hours
-3) Refactor, make app look prettier 💅, explore more(v3)
-   - PR: https://github.com/kumiko-haraguchi/weather-palette/pull/3 
+3) Refactor, make app look prettier💅 and explore more(v3)
+   - PR: https://github.com/kumiko-haraguchi/weather-palette-paidy/pull/3 
    - Time: Out of MVP, No count 
 
 ## 🔰 Getting Started
@@ -25,7 +25,7 @@
 
 ### 1. Installing
 ```
-git clone https://github.com/kumiko-haraguchi/weather-palette.git
+git clone https://github.com/kumiko-haraguchi/weather-palette-paidy.git
 cd weather-palette
 yarn install
 ```
