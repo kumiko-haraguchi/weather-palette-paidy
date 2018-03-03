@@ -1,0 +1,97 @@
+/*----------------------------------------
+OVERWRITE MUI DEFAULT STYLE
+------------------------------------------*/
+/* SelectField */
+.mui-select {
+  width: 210px !important;
+  padding: 0;
+  color: $base-font-color !important;
+  background: transparent !important;
+  border-radius: $base-bdrd;
+  box-sizing: border-box !important;
+  box-shadow: $base-shadow;
+
+  > div { // adjust text position
+    padding-left: $base-pd !important;
+  }
+
+  hr {
+    display: none !important;
+  }
+}
+.tehran,
+.colombo {
+  .mui-select {
+    border: $base-light-bd;
+  }
+}
+
+/* Card */
+.mui-card {
+  background: $light-bg !important;
+  border-radius: $base-bdrd !important;
+  box-sizing: border-box !important;
+  box-shadow: $base-shadow !important;
+ 
+  &.outer {
+    width: 1000px;
+    background: transparent !important;
+    padding: 0 $base-pd*2 $base-pd*2 $base-pd*2;    
+  }
+
+  &.width-short {
+    width: 800px;
+    .mui-card {
+      width: 20%;
+    }
+  }
+
+  > div {
+    height: 100% !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.tehran,
+.colombo {
+  .mui-card {
+    box-shadow: $base-light-shadow !important;
+  }
+}
+
+.mui-card-title {
+  height: 30px;
+  padding: $base-pd $base-pd*2 !important;
+  background: $light-gray-bg !important;
+  color: gray !important;
+  border-radius: $base-bdrd $base-bdrd 0 0;
+}
+
+.mui-card-text {
+  height: calc(100% - 30px);
+  padding: $base-pd 0 !important;
+  background: $light-white-bg !important;
+  border-radius: 0 0 $base-bdrd $base-bdrd !important;
+  color: gray !important;
+  text-align: center;
+  box-sizing: border-box;
+  
+  &.current {
+    font-size: 2.5rem !important;
+  }
+  
+  &.forecast {
+    .media-img {
+      font-size: 2.5rem !important;
+    }
+    font-size: 1rem !important;
+  }
+}
+.mui-card-text-inner {
+  padding: $base-pd;
+}
+
+.mui-card-sub-text {
+  color: gray !important;
+  font-size: 1.3rem !important;
+}
