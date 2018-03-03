@@ -16,3 +16,151 @@ COMMON
 .inner {
   padding: $base-pd*2;
 }
+
+/* icon */
+.icon-s {
+  font-size: $icon-size-S;
+}
+.icon-l {
+  font-size: $icon-size-L;
+}
+
+/* button */
+.btn-refresh {
+  background: none;
+  border: none;
+  color: $light-gray-bg;
+
+  .icon-s {
+    color: $light-white-bg;
+    transition: $base-transiton;
+    cursor: pointer;
+
+    &:hover {
+      color: $light-gray-bg;
+    }
+  }
+}
+
+/*----------------------------------------
+MUI OVERWRITE MUI DEFAULT STYLE
+------------------------------------------*/
+/* SelectField */
+.mui-select {
+  width: 210px !important;
+  padding: 0;
+  color: $base-font-color !important;
+  background: transparent !important;
+  border-radius: $base-bdrd;
+  box-sizing: border-box !important;
+  box-shadow: $base-shadow;
+  cursor: pointer;
+
+  > div { // adjust text position
+    padding-left: $base-pd !important;
+  }
+
+  hr {
+    display: none !important;
+  }
+}
+.tehran,
+.colombo {
+  .mui-select {
+    border: $base-light-bd;
+  }
+}
+
+/* Card */
+.mui-card {
+  background: $light-bg !important;
+  border-radius: $base-bdrd !important;
+  box-sizing: border-box !important;
+  box-shadow: $base-shadow !important;
+
+  &.outer {
+    max-width: 1000px;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 $base-pd*2 $base-pd*2 $base-pd*2;
+  }
+
+  &.width-short {
+    max-width: 800px;
+    .mui-card {
+      width: 20%;
+    }
+  }
+
+  > div {
+    height: 100% !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.tehran,
+.colombo {
+  .mui-card {
+    box-shadow: $base-light-shadow !important;
+    &.outer {
+      box-shadow: none !important;
+    }
+  }
+}
+
+.mui-card-header {
+  > div {
+    padding-right: 0 !important;
+  }
+
+  span {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem !important;
+    text-shadow: $base-shadow;
+  }
+}
+
+.mui-card-title {
+  height: 36px;
+  padding: $base-pd $base-pd*2 !important;
+  background: $light-gray-bg !important;
+  border-radius: $base-bdrd $base-bdrd 0 0;
+
+  span {
+    color: gray !important;
+    font-size: 1rem !important;
+  }
+}
+
+.mui-card-text {
+  padding: $base-pd 0 !important;
+  background: $light-white-bg !important;
+  border-radius: 0 0 $base-bdrd $base-bdrd !important;
+  color: gray !important;
+  text-align: center;
+  box-sizing: border-box;
+
+  &.current {
+    height: calc(100% - 36px);
+    font-size: 2.5rem !important;
+  }
+
+  &.forecast {
+    .media-img {
+      font-size: 2.5rem !important;
+      padding-bottom: $base-pd*2;
+    }
+    font-size: 1rem !important;
+  }
+}
+.mui-card-text-inner {
+  height: calc(100% - 36px);
+  padding: $base-pd;
+}
+
+.mui-card-sub-text {
+  padding-left: $base-pd/4;
+  color: gray !important;
+  font-size: 1.3rem !important;
+}

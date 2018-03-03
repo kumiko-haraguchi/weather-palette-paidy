@@ -7,18 +7,28 @@
     },
     {
       "id": 2,
-      "city": "San Francisco",
+      "city": "Seattle",
       "country": "US"
     },
     {
       "id": 3,
+      "city": "Colombo",
+      "country": "LK"
+    },
+    {
+      "id": 4,
+      "city": "San Francisco",
+      "country": "US"
+    },
+    {
+      "id": 5,
       "city": "Tehran",
       "country": "IR"
     },
     {
-      "id": 4,
-      "city": "Colombo",
-      "country": "LK"
+      "id": 6,
+      "city": "Toronto",
+      "country": "CA"
     }
   ]
 }
